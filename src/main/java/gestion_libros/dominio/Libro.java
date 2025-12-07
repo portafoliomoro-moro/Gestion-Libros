@@ -7,6 +7,7 @@ public class Libro {
     private String titulo;
     private String autor;
     private String editorial;
+    private int anio;
     private String codigo;
     private EstadoLibro estado;
     private int numero_prestamos;
@@ -21,11 +22,12 @@ public class Libro {
     }
 
     // Para poder agregar un libro
-    public Libro(String titulo, String autor, String editorial, String codigo, EstadoLibro estado,
+    public Libro(String titulo, String autor, String editorial, int anio, String codigo, EstadoLibro estado,
                  int numero_prestamos, int numero_renovaciones){
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
+        this.anio = anio;
         this.codigo = codigo;
         this.estado = estado;
         this.numero_prestamos = numero_prestamos;
@@ -33,9 +35,9 @@ public class Libro {
     }
 
     // Para poder modificar un libro
-    public Libro(int id_libro, String titulo, String autor, String editorial, String codigo, EstadoLibro estado,
+    public Libro(int id_libro, String titulo, String autor, String editorial, int anio, String codigo, EstadoLibro estado,
                  int numero_prestamos, int numero_renovaciones){
-        this(titulo,autor,editorial,codigo,estado,numero_prestamos,numero_renovaciones);
+        this(titulo,autor,editorial,anio,codigo,estado,numero_prestamos,numero_renovaciones);
         this.id_libro = id_libro;
     }
 
@@ -69,6 +71,14 @@ public class Libro {
 
     public void setEditorial(String editorial) {
         this.editorial = editorial;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
     public String getCodigo() {
@@ -110,6 +120,7 @@ public class Libro {
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", editorial='" + editorial + '\'' +
+                ", anio=" + anio +
                 ", codigo='" + codigo + '\'' +
                 ", estado=" + estado +
                 ", numero_prestamos=" + numero_prestamos +
@@ -122,12 +133,12 @@ public class Libro {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Libro libro = (Libro) o;
-        return id_libro == libro.id_libro && numero_prestamos == libro.numero_prestamos && numero_renovaciones == libro.numero_renovaciones && Objects.equals(titulo, libro.titulo) && Objects.equals(autor, libro.autor) && Objects.equals(editorial, libro.editorial) && Objects.equals(codigo, libro.codigo) && estado == libro.estado;
+        return id_libro == libro.id_libro && anio == libro.anio && numero_prestamos == libro.numero_prestamos && numero_renovaciones == libro.numero_renovaciones && Objects.equals(titulo, libro.titulo) && Objects.equals(autor, libro.autor) && Objects.equals(editorial, libro.editorial) && Objects.equals(codigo, libro.codigo) && estado == libro.estado;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_libro, titulo, autor, editorial, codigo, estado, numero_prestamos, numero_renovaciones);
+        return Objects.hash(id_libro, titulo, autor, editorial, anio, codigo, estado, numero_prestamos, numero_renovaciones);
     }
 }
 
