@@ -18,7 +18,7 @@ Este proyecto implementa un sistema básico de **gestión de Libros** utilizando
  │     └── Libro.java
  │
  ├── datos/
- │     ├── ILirboDAO.java
+ │     ├── ILibroDAO.java
  │     └── LibroDAO.java
  │
  ├── conexion/
